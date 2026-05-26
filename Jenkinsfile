@@ -72,13 +72,14 @@ pipeline {
         
         stage('Deploy using Docker Compose') {
                 steps {
-
                             sh '''
-                                docker compose down
+                                docker compose down || true
+
+                                docker rm -f node-todo-container || true
 
                                 docker compose pull
 
-                                docker compose up -d
+                                docker compose up -d --build
                                 '''
                         }
                 }
