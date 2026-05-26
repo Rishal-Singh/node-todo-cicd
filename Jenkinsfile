@@ -73,14 +73,18 @@ pipeline {
         stage('Deploy using Docker Compose') {
                 steps {
                             sh '''
-                                docker compose down || true
+                                # Stop and remove old container
+                                  docker rm -f node-todo-container || true
 
-                                docker rm -f node-todo-container || true
+                                # Stop compose stack
+                                  docker compose down || true
 
-                                docker compose pull
+                                # Pull latest image
+                                  docker compose pull
 
-                                docker compose up -d --build
-                                '''
+                                # Recreate containers
+                                  docker compose up -d --force-recreate
+                            '''
                         }
                 }
         
