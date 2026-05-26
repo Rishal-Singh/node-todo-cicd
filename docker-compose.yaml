@@ -1,7 +1,12 @@
-version: '3.9'
+version: '3'
 
 services:
-  web:
-    image: trainwithshubham/node-app:latest
+
+  node-todo-app:
+    image: rishalsingh/node-todo-app:latest
+    container_name: node-todo-container
+
     ports:
       - "8000:8000"
+
+    restart: always
