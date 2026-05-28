@@ -8,6 +8,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "AWS EC2 Key Pair Name"
+  default = "terraform"
 }
 
 variable "ami_id" {
