@@ -1,1 +1,1 @@
-key_name = "terraform.pem"
+key_name = "terraform"
